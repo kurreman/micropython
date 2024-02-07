@@ -2,6 +2,8 @@
 #define MICROPY_HW_MCU_NAME         "STM32H743"
 #define MICROPY_PY_SYS_PLATFORM     "OpenMV4P-H7"
 
+#define MICROPY_PY_MACHINE_I2S      (1)
+
 #define MICROPY_OBJ_REPR            (MICROPY_OBJ_REPR_C)
 #define UINT_FMT                    "%u"
 #define INT_FMT                     "%d"
@@ -15,7 +17,8 @@ typedef unsigned int mp_uint_t;     // must be pointer size
 #define MICROPY_HW_ENABLE_SERVO     (1)
 #define MICROPY_HW_ENABLE_DAC       (1)
 #define MICROPY_HW_ENABLE_ADC       (1)
-#define MICROPY_HW_ENABLE_SPI2      (1)
+#define MICROPY_HW_ENABLE_SPI2      (0)
+#define MICROPY_HW_ENABLE_I2S2      (1)
 #define MICROPY_HW_ENABLE_USB       (1)
 #define MICROPY_HW_HAS_FLASH        (1)
 #define MICROPY_HW_ENABLE_SDCARD    (1)
@@ -82,6 +85,13 @@ void board_low_power(int mode);
 #define MICROPY_HW_SPI2_SCK  (pin_B13)
 #define MICROPY_HW_SPI2_MISO (pin_B14)
 #define MICROPY_HW_SPI2_MOSI (pin_B15)
+
+// I2S buses
+#define MICROPY_HW_I2S2      (1)
+#define MICROPY_HW_I2S2_WS  (pin_B12)
+#define MICROPY_HW_I2S2_CK  (pin_B13)
+#define MICROPY_HW_I2S2_SDI (pin_B14)
+#define MICROPY_HW_I2S2_SDO (pin_B15)
 
 // FDCAN bus
 #define MICROPY_HW_CAN2_NAME "FDCAN2"

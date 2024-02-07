@@ -443,7 +443,7 @@ void stm32_main(uint32_t reset_mode) {
     MP_STATE_PORT(machine_uart_obj_all)[MICROPY_HW_UART_REPL - 1] = &pyb_uart_repl_obj;
     MP_STATE_PORT(pyb_stdio_uart) = &pyb_uart_repl_obj;
     #endif
-
+    //NOTE might need to add a check if SPI is enabled here, since we have disabled it in mpconfigboard.h
     spi_init0();
     #if MICROPY_PY_PYB_LEGACY && MICROPY_HW_ENABLE_HW_I2C
     i2c_init0();
@@ -667,6 +667,11 @@ soft_reset_exit:
     #if MICROPY_HW_ENABLE_CAN
     can_deinit_all();
     #endif
+
+    #if MICROPY_PY_MACHINE_I2S
+    machine_i2s_deinit_all(); //TODO check if this is correct deinit
+    #endif
+
     #if MICROPY_HW_ENABLE_DAC
     dac_deinit_all();
     #endif

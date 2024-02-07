@@ -46,6 +46,7 @@
 #include "usb.h"
 #include "rtc.h"
 #include "i2c.h"
+// #include "i2s.h" //NOTE this was not in commit, maybe needed? 
 #include "spi.h"
 
 #if defined(STM32G0)

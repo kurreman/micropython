@@ -251,6 +251,7 @@ SRC_C = \
 	help.c \
 	machine_bitstream.c \
 	machine_i2c.c \
+	machine_i2s.c \
 	machine_spi.c \
 	modpyb.c \
 	modstm.c \
@@ -319,6 +320,12 @@ HAL_SRC_C += $(addprefix $(STM32LIB_HAL_BASE)/Src/stm32$(MCU_SERIES)xx_,\
 	ll_rcc.c \
 	ll_utils.c \
 	)
+
+ifeq ($(MCU_SERIES),$(filter $(MCU_SERIES),h7))
+HAL_SRC_C += $(addprefix $(STM32LIB_HAL_BASE)/Src/stm32$(MCU_SERIES)xx_,\
+	hal_i2s.c \
+	)
+endif
 
 ifeq ($(MCU_SERIES),$(filter $(MCU_SERIES),f4 f7 g0 g4 h5 h7 l0 l1 l4 wb))
 HAL_SRC_C += $(addprefix $(STM32LIB_HAL_BASE)/Src/stm32$(MCU_SERIES)xx_,\

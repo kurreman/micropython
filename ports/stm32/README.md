@@ -22,6 +22,9 @@ not work and none of the advanced features of the STM32H7 are yet supported,
 such as the clock tree.  At this point the STM32H7 should be considered as a
 fast version of the STM32F7.
 
+Added features: 
+- machine.i2s
+
 Build instructions
 ------------------
 
